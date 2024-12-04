@@ -1,0 +1,2059 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> declaracoes
+Rule 2     declaracoes -> declaracao
+Rule 3     declaracoes -> declaracoes declaracao
+Rule 4     declaracao -> decl_var
+Rule 5     declaracao -> bloco_try_catch
+Rule 6     declaracao -> comando
+Rule 7     declaracao -> condicional
+Rule 8     declaracao -> func_call
+Rule 9     declaracao -> expressao_stmt
+Rule 10    expressao_stmt -> expressao PONTO_VIRGULA
+Rule 11    decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA
+Rule 12    bloco_try_catch -> TRY DOIS_PONTOS bloco
+Rule 13    bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+Rule 14    bloco -> declaracao
+Rule 15    bloco -> bloco declaracao
+Rule 16    condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+Rule 17    condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+Rule 18    comando -> acao PONTO_VIRGULA
+Rule 19    comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+Rule 20    comando -> acao argumentos PONTO_VIRGULA
+Rule 21    acao -> PRESS
+Rule 22    acao -> EXIT
+Rule 23    acao -> SHOW
+Rule 24    acao -> TRYAGAIN
+Rule 25    func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+Rule 26    argumentos_opcionais -> argumentos
+Rule 27    argumentos_opcionais -> empty
+Rule 28    argumentos -> argumento
+Rule 29    argumentos -> argumentos VIRGULA argumento
+Rule 30    argumento -> expressao
+Rule 31    argumento -> TECLA
+Rule 32    expressao -> expressao MAIS expressao
+Rule 33    expressao -> expressao MENOS expressao
+Rule 34    expressao -> expressao MULTIPLICACAO expressao
+Rule 35    expressao -> expressao DIVISAO expressao
+Rule 36    expressao -> expressao MENOR expressao
+Rule 37    expressao -> expressao MAIOR expressao
+Rule 38    expressao -> expressao IGUAL_IGUAL expressao
+Rule 39    expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE
+Rule 40    expressao -> NUMERO
+Rule 41    expressao -> IDENTIFICADOR
+Rule 42    expressao -> STRING
+Rule 43    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ABRE_CHAVE           : 16 17 17
+ABRE_PARENTESE       : 16 17 19 25 39
+CATCH                : 13
+DIVISAO              : 35
+DOIS_PONTOS          : 12 13 13
+ELSE                 : 17
+EXIT                 : 22
+FECHA_CHAVE          : 16 17 17
+FECHA_PARENTESE      : 16 17 19 25 39
+IDENTIFICADOR        : 11 25 41
+IF                   : 16 17
+IGUAL                : 11
+IGUAL_IGUAL          : 38
+MAIOR                : 37
+MAIS                 : 32
+MENOR                : 36
+MENOS                : 33
+MULTIPLICACAO        : 34
+NUMERO               : 40
+PONTO_VIRGULA        : 10 11 18 19 20 25
+PRESS                : 21
+SHOW                 : 23
+STRING               : 42
+TECLA                : 31
+TRY                  : 12 13
+TRYAGAIN             : 24
+VIRGULA              : 29
+error                : 
+
+Nonterminals, with rules where they appear
+
+acao                 : 18 19 20
+argumento            : 28 29
+argumentos           : 20 26 29
+argumentos_opcionais : 19 25
+bloco                : 12 13 13 15 16 17 17
+bloco_try_catch      : 5
+comando              : 6
+condicional          : 7
+decl_var             : 4
+declaracao           : 2 3 14 15
+declaracoes          : 1 3
+empty                : 27
+expressao            : 10 11 16 17 30 32 32 33 33 34 34 35 35 36 36 37 37 38 38 39
+expressao_stmt       : 9
+func_call            : 8
+programa             : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . programa
+    (1) programa -> . declaracoes
+    (2) declaracoes -> . declaracao
+    (3) declaracoes -> . declaracoes declaracao
+    (4) declaracao -> . decl_var
+    (5) declaracao -> . bloco_try_catch
+    (6) declaracao -> . comando
+    (7) declaracao -> . condicional
+    (8) declaracao -> . func_call
+    (9) declaracao -> . expressao_stmt
+    (11) decl_var -> . IDENTIFICADOR IGUAL expressao PONTO_VIRGULA
+    (12) bloco_try_catch -> . TRY DOIS_PONTOS bloco
+    (13) bloco_try_catch -> . TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+    (18) comando -> . acao PONTO_VIRGULA
+    (19) comando -> . acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (20) comando -> . acao argumentos PONTO_VIRGULA
+    (16) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (25) func_call -> . IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (10) expressao_stmt -> . expressao PONTO_VIRGULA
+    (21) acao -> . PRESS
+    (22) acao -> . EXIT
+    (23) acao -> . SHOW
+    (24) acao -> . TRYAGAIN
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    IDENTIFICADOR   shift and go to state 10
+    TRY             shift and go to state 12
+    IF              shift and go to state 15
+    PRESS           shift and go to state 16
+    EXIT            shift and go to state 17
+    SHOW            shift and go to state 18
+    TRYAGAIN        shift and go to state 19
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    STRING          shift and go to state 21
+
+    programa                       shift and go to state 1
+    declaracoes                    shift and go to state 2
+    declaracao                     shift and go to state 3
+    decl_var                       shift and go to state 4
+    bloco_try_catch                shift and go to state 5
+    comando                        shift and go to state 6
+    condicional                    shift and go to state 7
+    func_call                      shift and go to state 8
+    expressao_stmt                 shift and go to state 9
+    expressao                      shift and go to state 11
+    acao                           shift and go to state 13
+
+state 1
+
+    (0) S' -> programa .
+
+
+
+state 2
+
+    (1) programa -> declaracoes .
+    (3) declaracoes -> declaracoes . declaracao
+    (4) declaracao -> . decl_var
+    (5) declaracao -> . bloco_try_catch
+    (6) declaracao -> . comando
+    (7) declaracao -> . condicional
+    (8) declaracao -> . func_call
+    (9) declaracao -> . expressao_stmt
+    (11) decl_var -> . IDENTIFICADOR IGUAL expressao PONTO_VIRGULA
+    (12) bloco_try_catch -> . TRY DOIS_PONTOS bloco
+    (13) bloco_try_catch -> . TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+    (18) comando -> . acao PONTO_VIRGULA
+    (19) comando -> . acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (20) comando -> . acao argumentos PONTO_VIRGULA
+    (16) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (25) func_call -> . IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (10) expressao_stmt -> . expressao PONTO_VIRGULA
+    (21) acao -> . PRESS
+    (22) acao -> . EXIT
+    (23) acao -> . SHOW
+    (24) acao -> . TRYAGAIN
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    $end            reduce using rule 1 (programa -> declaracoes .)
+    IDENTIFICADOR   shift and go to state 10
+    TRY             shift and go to state 12
+    IF              shift and go to state 15
+    PRESS           shift and go to state 16
+    EXIT            shift and go to state 17
+    SHOW            shift and go to state 18
+    TRYAGAIN        shift and go to state 19
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    STRING          shift and go to state 21
+
+    declaracao                     shift and go to state 22
+    decl_var                       shift and go to state 4
+    bloco_try_catch                shift and go to state 5
+    comando                        shift and go to state 6
+    condicional                    shift and go to state 7
+    func_call                      shift and go to state 8
+    expressao_stmt                 shift and go to state 9
+    expressao                      shift and go to state 11
+    acao                           shift and go to state 13
+
+state 3
+
+    (2) declaracoes -> declaracao .
+
+    IDENTIFICADOR   reduce using rule 2 (declaracoes -> declaracao .)
+    TRY             reduce using rule 2 (declaracoes -> declaracao .)
+    IF              reduce using rule 2 (declaracoes -> declaracao .)
+    PRESS           reduce using rule 2 (declaracoes -> declaracao .)
+    EXIT            reduce using rule 2 (declaracoes -> declaracao .)
+    SHOW            reduce using rule 2 (declaracoes -> declaracao .)
+    TRYAGAIN        reduce using rule 2 (declaracoes -> declaracao .)
+    ABRE_PARENTESE  reduce using rule 2 (declaracoes -> declaracao .)
+    NUMERO          reduce using rule 2 (declaracoes -> declaracao .)
+    STRING          reduce using rule 2 (declaracoes -> declaracao .)
+    $end            reduce using rule 2 (declaracoes -> declaracao .)
+
+
+state 4
+
+    (4) declaracao -> decl_var .
+
+    IDENTIFICADOR   reduce using rule 4 (declaracao -> decl_var .)
+    TRY             reduce using rule 4 (declaracao -> decl_var .)
+    IF              reduce using rule 4 (declaracao -> decl_var .)
+    PRESS           reduce using rule 4 (declaracao -> decl_var .)
+    EXIT            reduce using rule 4 (declaracao -> decl_var .)
+    SHOW            reduce using rule 4 (declaracao -> decl_var .)
+    TRYAGAIN        reduce using rule 4 (declaracao -> decl_var .)
+    ABRE_PARENTESE  reduce using rule 4 (declaracao -> decl_var .)
+    NUMERO          reduce using rule 4 (declaracao -> decl_var .)
+    STRING          reduce using rule 4 (declaracao -> decl_var .)
+    $end            reduce using rule 4 (declaracao -> decl_var .)
+    CATCH           reduce using rule 4 (declaracao -> decl_var .)
+    FECHA_CHAVE     reduce using rule 4 (declaracao -> decl_var .)
+
+
+state 5
+
+    (5) declaracao -> bloco_try_catch .
+
+    IDENTIFICADOR   reduce using rule 5 (declaracao -> bloco_try_catch .)
+    TRY             reduce using rule 5 (declaracao -> bloco_try_catch .)
+    IF              reduce using rule 5 (declaracao -> bloco_try_catch .)
+    PRESS           reduce using rule 5 (declaracao -> bloco_try_catch .)
+    EXIT            reduce using rule 5 (declaracao -> bloco_try_catch .)
+    SHOW            reduce using rule 5 (declaracao -> bloco_try_catch .)
+    TRYAGAIN        reduce using rule 5 (declaracao -> bloco_try_catch .)
+    ABRE_PARENTESE  reduce using rule 5 (declaracao -> bloco_try_catch .)
+    NUMERO          reduce using rule 5 (declaracao -> bloco_try_catch .)
+    STRING          reduce using rule 5 (declaracao -> bloco_try_catch .)
+    $end            reduce using rule 5 (declaracao -> bloco_try_catch .)
+    CATCH           reduce using rule 5 (declaracao -> bloco_try_catch .)
+    FECHA_CHAVE     reduce using rule 5 (declaracao -> bloco_try_catch .)
+
+
+state 6
+
+    (6) declaracao -> comando .
+
+    IDENTIFICADOR   reduce using rule 6 (declaracao -> comando .)
+    TRY             reduce using rule 6 (declaracao -> comando .)
+    IF              reduce using rule 6 (declaracao -> comando .)
+    PRESS           reduce using rule 6 (declaracao -> comando .)
+    EXIT            reduce using rule 6 (declaracao -> comando .)
+    SHOW            reduce using rule 6 (declaracao -> comando .)
+    TRYAGAIN        reduce using rule 6 (declaracao -> comando .)
+    ABRE_PARENTESE  reduce using rule 6 (declaracao -> comando .)
+    NUMERO          reduce using rule 6 (declaracao -> comando .)
+    STRING          reduce using rule 6 (declaracao -> comando .)
+    $end            reduce using rule 6 (declaracao -> comando .)
+    CATCH           reduce using rule 6 (declaracao -> comando .)
+    FECHA_CHAVE     reduce using rule 6 (declaracao -> comando .)
+
+
+state 7
+
+    (7) declaracao -> condicional .
+
+    IDENTIFICADOR   reduce using rule 7 (declaracao -> condicional .)
+    TRY             reduce using rule 7 (declaracao -> condicional .)
+    IF              reduce using rule 7 (declaracao -> condicional .)
+    PRESS           reduce using rule 7 (declaracao -> condicional .)
+    EXIT            reduce using rule 7 (declaracao -> condicional .)
+    SHOW            reduce using rule 7 (declaracao -> condicional .)
+    TRYAGAIN        reduce using rule 7 (declaracao -> condicional .)
+    ABRE_PARENTESE  reduce using rule 7 (declaracao -> condicional .)
+    NUMERO          reduce using rule 7 (declaracao -> condicional .)
+    STRING          reduce using rule 7 (declaracao -> condicional .)
+    $end            reduce using rule 7 (declaracao -> condicional .)
+    CATCH           reduce using rule 7 (declaracao -> condicional .)
+    FECHA_CHAVE     reduce using rule 7 (declaracao -> condicional .)
+
+
+state 8
+
+    (8) declaracao -> func_call .
+
+    IDENTIFICADOR   reduce using rule 8 (declaracao -> func_call .)
+    TRY             reduce using rule 8 (declaracao -> func_call .)
+    IF              reduce using rule 8 (declaracao -> func_call .)
+    PRESS           reduce using rule 8 (declaracao -> func_call .)
+    EXIT            reduce using rule 8 (declaracao -> func_call .)
+    SHOW            reduce using rule 8 (declaracao -> func_call .)
+    TRYAGAIN        reduce using rule 8 (declaracao -> func_call .)
+    ABRE_PARENTESE  reduce using rule 8 (declaracao -> func_call .)
+    NUMERO          reduce using rule 8 (declaracao -> func_call .)
+    STRING          reduce using rule 8 (declaracao -> func_call .)
+    $end            reduce using rule 8 (declaracao -> func_call .)
+    CATCH           reduce using rule 8 (declaracao -> func_call .)
+    FECHA_CHAVE     reduce using rule 8 (declaracao -> func_call .)
+
+
+state 9
+
+    (9) declaracao -> expressao_stmt .
+
+    IDENTIFICADOR   reduce using rule 9 (declaracao -> expressao_stmt .)
+    TRY             reduce using rule 9 (declaracao -> expressao_stmt .)
+    IF              reduce using rule 9 (declaracao -> expressao_stmt .)
+    PRESS           reduce using rule 9 (declaracao -> expressao_stmt .)
+    EXIT            reduce using rule 9 (declaracao -> expressao_stmt .)
+    SHOW            reduce using rule 9 (declaracao -> expressao_stmt .)
+    TRYAGAIN        reduce using rule 9 (declaracao -> expressao_stmt .)
+    ABRE_PARENTESE  reduce using rule 9 (declaracao -> expressao_stmt .)
+    NUMERO          reduce using rule 9 (declaracao -> expressao_stmt .)
+    STRING          reduce using rule 9 (declaracao -> expressao_stmt .)
+    $end            reduce using rule 9 (declaracao -> expressao_stmt .)
+    CATCH           reduce using rule 9 (declaracao -> expressao_stmt .)
+    FECHA_CHAVE     reduce using rule 9 (declaracao -> expressao_stmt .)
+
+
+state 10
+
+    (11) decl_var -> IDENTIFICADOR . IGUAL expressao PONTO_VIRGULA
+    (25) func_call -> IDENTIFICADOR . ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (41) expressao -> IDENTIFICADOR .
+
+    IGUAL           shift and go to state 23
+    ABRE_PARENTESE  shift and go to state 24
+    PONTO_VIRGULA   reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    MAIS            reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    MENOS           reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    MULTIPLICACAO   reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    DIVISAO         reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    MENOR           reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    MAIOR           reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    IGUAL_IGUAL     reduce using rule 41 (expressao -> IDENTIFICADOR .)
+
+
+state 11
+
+    (10) expressao_stmt -> expressao . PONTO_VIRGULA
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    PONTO_VIRGULA   shift and go to state 25
+    MAIS            shift and go to state 26
+    MENOS           shift and go to state 27
+    MULTIPLICACAO   shift and go to state 28
+    DIVISAO         shift and go to state 29
+    MENOR           shift and go to state 30
+    MAIOR           shift and go to state 31
+    IGUAL_IGUAL     shift and go to state 32
+
+
+state 12
+
+    (12) bloco_try_catch -> TRY . DOIS_PONTOS bloco
+    (13) bloco_try_catch -> TRY . DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+
+    DOIS_PONTOS     shift and go to state 33
+
+
+state 13
+
+    (18) comando -> acao . PONTO_VIRGULA
+    (19) comando -> acao . ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (20) comando -> acao . argumentos PONTO_VIRGULA
+    (28) argumentos -> . argumento
+    (29) argumentos -> . argumentos VIRGULA argumento
+    (30) argumento -> . expressao
+    (31) argumento -> . TECLA
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    PONTO_VIRGULA   shift and go to state 34
+    ABRE_PARENTESE  shift and go to state 35
+    TECLA           shift and go to state 39
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    argumentos                     shift and go to state 36
+    argumento                      shift and go to state 37
+    expressao                      shift and go to state 38
+
+state 14
+
+    (39) expressao -> ABRE_PARENTESE . expressao FECHA_PARENTESE
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 41
+
+state 15
+
+    (16) condicional -> IF . ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> IF . ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+
+    ABRE_PARENTESE  shift and go to state 42
+
+
+state 16
+
+    (21) acao -> PRESS .
+
+    PONTO_VIRGULA   reduce using rule 21 (acao -> PRESS .)
+    ABRE_PARENTESE  reduce using rule 21 (acao -> PRESS .)
+    TECLA           reduce using rule 21 (acao -> PRESS .)
+    NUMERO          reduce using rule 21 (acao -> PRESS .)
+    IDENTIFICADOR   reduce using rule 21 (acao -> PRESS .)
+    STRING          reduce using rule 21 (acao -> PRESS .)
+
+
+state 17
+
+    (22) acao -> EXIT .
+
+    PONTO_VIRGULA   reduce using rule 22 (acao -> EXIT .)
+    ABRE_PARENTESE  reduce using rule 22 (acao -> EXIT .)
+    TECLA           reduce using rule 22 (acao -> EXIT .)
+    NUMERO          reduce using rule 22 (acao -> EXIT .)
+    IDENTIFICADOR   reduce using rule 22 (acao -> EXIT .)
+    STRING          reduce using rule 22 (acao -> EXIT .)
+
+
+state 18
+
+    (23) acao -> SHOW .
+
+    PONTO_VIRGULA   reduce using rule 23 (acao -> SHOW .)
+    ABRE_PARENTESE  reduce using rule 23 (acao -> SHOW .)
+    TECLA           reduce using rule 23 (acao -> SHOW .)
+    NUMERO          reduce using rule 23 (acao -> SHOW .)
+    IDENTIFICADOR   reduce using rule 23 (acao -> SHOW .)
+    STRING          reduce using rule 23 (acao -> SHOW .)
+
+
+state 19
+
+    (24) acao -> TRYAGAIN .
+
+    PONTO_VIRGULA   reduce using rule 24 (acao -> TRYAGAIN .)
+    ABRE_PARENTESE  reduce using rule 24 (acao -> TRYAGAIN .)
+    TECLA           reduce using rule 24 (acao -> TRYAGAIN .)
+    NUMERO          reduce using rule 24 (acao -> TRYAGAIN .)
+    IDENTIFICADOR   reduce using rule 24 (acao -> TRYAGAIN .)
+    STRING          reduce using rule 24 (acao -> TRYAGAIN .)
+
+
+state 20
+
+    (40) expressao -> NUMERO .
+
+    PONTO_VIRGULA   reduce using rule 40 (expressao -> NUMERO .)
+    MAIS            reduce using rule 40 (expressao -> NUMERO .)
+    MENOS           reduce using rule 40 (expressao -> NUMERO .)
+    MULTIPLICACAO   reduce using rule 40 (expressao -> NUMERO .)
+    DIVISAO         reduce using rule 40 (expressao -> NUMERO .)
+    MENOR           reduce using rule 40 (expressao -> NUMERO .)
+    MAIOR           reduce using rule 40 (expressao -> NUMERO .)
+    IGUAL_IGUAL     reduce using rule 40 (expressao -> NUMERO .)
+    VIRGULA         reduce using rule 40 (expressao -> NUMERO .)
+    FECHA_PARENTESE reduce using rule 40 (expressao -> NUMERO .)
+
+
+state 21
+
+    (42) expressao -> STRING .
+
+    PONTO_VIRGULA   reduce using rule 42 (expressao -> STRING .)
+    MAIS            reduce using rule 42 (expressao -> STRING .)
+    MENOS           reduce using rule 42 (expressao -> STRING .)
+    MULTIPLICACAO   reduce using rule 42 (expressao -> STRING .)
+    DIVISAO         reduce using rule 42 (expressao -> STRING .)
+    MENOR           reduce using rule 42 (expressao -> STRING .)
+    MAIOR           reduce using rule 42 (expressao -> STRING .)
+    IGUAL_IGUAL     reduce using rule 42 (expressao -> STRING .)
+    VIRGULA         reduce using rule 42 (expressao -> STRING .)
+    FECHA_PARENTESE reduce using rule 42 (expressao -> STRING .)
+
+
+state 22
+
+    (3) declaracoes -> declaracoes declaracao .
+
+    IDENTIFICADOR   reduce using rule 3 (declaracoes -> declaracoes declaracao .)
+    TRY             reduce using rule 3 (declaracoes -> declaracoes declaracao .)
+    IF              reduce using rule 3 (declaracoes -> declaracoes declaracao .)
+    PRESS           reduce using rule 3 (declaracoes -> declaracoes declaracao .)
+    EXIT            reduce using rule 3 (declaracoes -> declaracoes declaracao .)
+    SHOW            reduce using rule 3 (declaracoes -> declaracoes declaracao .)
+    TRYAGAIN        reduce using rule 3 (declaracoes -> declaracoes declaracao .)
+    ABRE_PARENTESE  reduce using rule 3 (declaracoes -> declaracoes declaracao .)
+    NUMERO          reduce using rule 3 (declaracoes -> declaracoes declaracao .)
+    STRING          reduce using rule 3 (declaracoes -> declaracoes declaracao .)
+    $end            reduce using rule 3 (declaracoes -> declaracoes declaracao .)
+
+
+state 23
+
+    (11) decl_var -> IDENTIFICADOR IGUAL . expressao PONTO_VIRGULA
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 43
+
+state 24
+
+    (25) func_call -> IDENTIFICADOR ABRE_PARENTESE . argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (26) argumentos_opcionais -> . argumentos
+    (27) argumentos_opcionais -> . empty
+    (28) argumentos -> . argumento
+    (29) argumentos -> . argumentos VIRGULA argumento
+    (43) empty -> .
+    (30) argumento -> . expressao
+    (31) argumento -> . TECLA
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    FECHA_PARENTESE reduce using rule 43 (empty -> .)
+    TECLA           shift and go to state 39
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    argumentos_opcionais           shift and go to state 44
+    argumentos                     shift and go to state 45
+    empty                          shift and go to state 46
+    argumento                      shift and go to state 37
+    expressao                      shift and go to state 38
+
+state 25
+
+    (10) expressao_stmt -> expressao PONTO_VIRGULA .
+
+    IDENTIFICADOR   reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    TRY             reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    IF              reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    PRESS           reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    EXIT            reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    SHOW            reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    TRYAGAIN        reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    ABRE_PARENTESE  reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    NUMERO          reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    STRING          reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    $end            reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    CATCH           reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+    FECHA_CHAVE     reduce using rule 10 (expressao_stmt -> expressao PONTO_VIRGULA .)
+
+
+state 26
+
+    (32) expressao -> expressao MAIS . expressao
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 47
+
+state 27
+
+    (33) expressao -> expressao MENOS . expressao
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 48
+
+state 28
+
+    (34) expressao -> expressao MULTIPLICACAO . expressao
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 49
+
+state 29
+
+    (35) expressao -> expressao DIVISAO . expressao
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 50
+
+state 30
+
+    (36) expressao -> expressao MENOR . expressao
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 51
+
+state 31
+
+    (37) expressao -> expressao MAIOR . expressao
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 52
+
+state 32
+
+    (38) expressao -> expressao IGUAL_IGUAL . expressao
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 53
+
+state 33
+
+    (12) bloco_try_catch -> TRY DOIS_PONTOS . bloco
+    (13) bloco_try_catch -> TRY DOIS_PONTOS . bloco CATCH DOIS_PONTOS bloco
+    (14) bloco -> . declaracao
+    (15) bloco -> . bloco declaracao
+    (4) declaracao -> . decl_var
+    (5) declaracao -> . bloco_try_catch
+    (6) declaracao -> . comando
+    (7) declaracao -> . condicional
+    (8) declaracao -> . func_call
+    (9) declaracao -> . expressao_stmt
+    (11) decl_var -> . IDENTIFICADOR IGUAL expressao PONTO_VIRGULA
+    (12) bloco_try_catch -> . TRY DOIS_PONTOS bloco
+    (13) bloco_try_catch -> . TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+    (18) comando -> . acao PONTO_VIRGULA
+    (19) comando -> . acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (20) comando -> . acao argumentos PONTO_VIRGULA
+    (16) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (25) func_call -> . IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (10) expressao_stmt -> . expressao PONTO_VIRGULA
+    (21) acao -> . PRESS
+    (22) acao -> . EXIT
+    (23) acao -> . SHOW
+    (24) acao -> . TRYAGAIN
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    IDENTIFICADOR   shift and go to state 10
+    TRY             shift and go to state 12
+    IF              shift and go to state 15
+    PRESS           shift and go to state 16
+    EXIT            shift and go to state 17
+    SHOW            shift and go to state 18
+    TRYAGAIN        shift and go to state 19
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    STRING          shift and go to state 21
+
+    bloco                          shift and go to state 54
+    declaracao                     shift and go to state 55
+    decl_var                       shift and go to state 4
+    bloco_try_catch                shift and go to state 5
+    comando                        shift and go to state 6
+    condicional                    shift and go to state 7
+    func_call                      shift and go to state 8
+    expressao_stmt                 shift and go to state 9
+    expressao                      shift and go to state 11
+    acao                           shift and go to state 13
+
+state 34
+
+    (18) comando -> acao PONTO_VIRGULA .
+
+    IDENTIFICADOR   reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    TRY             reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    IF              reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    PRESS           reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    EXIT            reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    SHOW            reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    TRYAGAIN        reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    ABRE_PARENTESE  reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    NUMERO          reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    STRING          reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    $end            reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    CATCH           reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+    FECHA_CHAVE     reduce using rule 18 (comando -> acao PONTO_VIRGULA .)
+
+
+state 35
+
+    (19) comando -> acao ABRE_PARENTESE . argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (39) expressao -> ABRE_PARENTESE . expressao FECHA_PARENTESE
+    (26) argumentos_opcionais -> . argumentos
+    (27) argumentos_opcionais -> . empty
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+    (28) argumentos -> . argumento
+    (29) argumentos -> . argumentos VIRGULA argumento
+    (43) empty -> .
+    (30) argumento -> . expressao
+    (31) argumento -> . TECLA
+
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+    FECHA_PARENTESE reduce using rule 43 (empty -> .)
+    TECLA           shift and go to state 39
+
+    argumentos_opcionais           shift and go to state 56
+    expressao                      shift and go to state 57
+    argumentos                     shift and go to state 45
+    empty                          shift and go to state 46
+    argumento                      shift and go to state 37
+
+state 36
+
+    (20) comando -> acao argumentos . PONTO_VIRGULA
+    (29) argumentos -> argumentos . VIRGULA argumento
+
+    PONTO_VIRGULA   shift and go to state 58
+    VIRGULA         shift and go to state 59
+
+
+state 37
+
+    (28) argumentos -> argumento .
+
+    PONTO_VIRGULA   reduce using rule 28 (argumentos -> argumento .)
+    VIRGULA         reduce using rule 28 (argumentos -> argumento .)
+    FECHA_PARENTESE reduce using rule 28 (argumentos -> argumento .)
+
+
+state 38
+
+    (30) argumento -> expressao .
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    PONTO_VIRGULA   reduce using rule 30 (argumento -> expressao .)
+    VIRGULA         reduce using rule 30 (argumento -> expressao .)
+    FECHA_PARENTESE reduce using rule 30 (argumento -> expressao .)
+    MAIS            shift and go to state 26
+    MENOS           shift and go to state 27
+    MULTIPLICACAO   shift and go to state 28
+    DIVISAO         shift and go to state 29
+    MENOR           shift and go to state 30
+    MAIOR           shift and go to state 31
+    IGUAL_IGUAL     shift and go to state 32
+
+
+state 39
+
+    (31) argumento -> TECLA .
+
+    PONTO_VIRGULA   reduce using rule 31 (argumento -> TECLA .)
+    VIRGULA         reduce using rule 31 (argumento -> TECLA .)
+    FECHA_PARENTESE reduce using rule 31 (argumento -> TECLA .)
+
+
+state 40
+
+    (41) expressao -> IDENTIFICADOR .
+
+    MAIS            reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    MENOS           reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    MULTIPLICACAO   reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    DIVISAO         reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    MENOR           reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    MAIOR           reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    IGUAL_IGUAL     reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    PONTO_VIRGULA   reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    VIRGULA         reduce using rule 41 (expressao -> IDENTIFICADOR .)
+    FECHA_PARENTESE reduce using rule 41 (expressao -> IDENTIFICADOR .)
+
+
+state 41
+
+    (39) expressao -> ABRE_PARENTESE expressao . FECHA_PARENTESE
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    FECHA_PARENTESE shift and go to state 60
+    MAIS            shift and go to state 26
+    MENOS           shift and go to state 27
+    MULTIPLICACAO   shift and go to state 28
+    DIVISAO         shift and go to state 29
+    MENOR           shift and go to state 30
+    MAIOR           shift and go to state 31
+    IGUAL_IGUAL     shift and go to state 32
+
+
+state 42
+
+    (16) condicional -> IF ABRE_PARENTESE . expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> IF ABRE_PARENTESE . expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 61
+
+state 43
+
+    (11) decl_var -> IDENTIFICADOR IGUAL expressao . PONTO_VIRGULA
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    PONTO_VIRGULA   shift and go to state 62
+    MAIS            shift and go to state 26
+    MENOS           shift and go to state 27
+    MULTIPLICACAO   shift and go to state 28
+    DIVISAO         shift and go to state 29
+    MENOR           shift and go to state 30
+    MAIOR           shift and go to state 31
+    IGUAL_IGUAL     shift and go to state 32
+
+
+state 44
+
+    (25) func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais . FECHA_PARENTESE PONTO_VIRGULA
+
+    FECHA_PARENTESE shift and go to state 63
+
+
+state 45
+
+    (26) argumentos_opcionais -> argumentos .
+    (29) argumentos -> argumentos . VIRGULA argumento
+
+    FECHA_PARENTESE reduce using rule 26 (argumentos_opcionais -> argumentos .)
+    VIRGULA         shift and go to state 59
+
+
+state 46
+
+    (27) argumentos_opcionais -> empty .
+
+    FECHA_PARENTESE reduce using rule 27 (argumentos_opcionais -> empty .)
+
+
+state 47
+
+    (32) expressao -> expressao MAIS expressao .
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    PONTO_VIRGULA   reduce using rule 32 (expressao -> expressao MAIS expressao .)
+    MAIS            reduce using rule 32 (expressao -> expressao MAIS expressao .)
+    MENOS           reduce using rule 32 (expressao -> expressao MAIS expressao .)
+    MENOR           reduce using rule 32 (expressao -> expressao MAIS expressao .)
+    MAIOR           reduce using rule 32 (expressao -> expressao MAIS expressao .)
+    IGUAL_IGUAL     reduce using rule 32 (expressao -> expressao MAIS expressao .)
+    VIRGULA         reduce using rule 32 (expressao -> expressao MAIS expressao .)
+    FECHA_PARENTESE reduce using rule 32 (expressao -> expressao MAIS expressao .)
+    MULTIPLICACAO   shift and go to state 28
+    DIVISAO         shift and go to state 29
+
+  ! MULTIPLICACAO   [ reduce using rule 32 (expressao -> expressao MAIS expressao .) ]
+  ! DIVISAO         [ reduce using rule 32 (expressao -> expressao MAIS expressao .) ]
+  ! MAIS            [ shift and go to state 26 ]
+  ! MENOS           [ shift and go to state 27 ]
+  ! MENOR           [ shift and go to state 30 ]
+  ! MAIOR           [ shift and go to state 31 ]
+  ! IGUAL_IGUAL     [ shift and go to state 32 ]
+
+
+state 48
+
+    (33) expressao -> expressao MENOS expressao .
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    PONTO_VIRGULA   reduce using rule 33 (expressao -> expressao MENOS expressao .)
+    MAIS            reduce using rule 33 (expressao -> expressao MENOS expressao .)
+    MENOS           reduce using rule 33 (expressao -> expressao MENOS expressao .)
+    MENOR           reduce using rule 33 (expressao -> expressao MENOS expressao .)
+    MAIOR           reduce using rule 33 (expressao -> expressao MENOS expressao .)
+    IGUAL_IGUAL     reduce using rule 33 (expressao -> expressao MENOS expressao .)
+    VIRGULA         reduce using rule 33 (expressao -> expressao MENOS expressao .)
+    FECHA_PARENTESE reduce using rule 33 (expressao -> expressao MENOS expressao .)
+    MULTIPLICACAO   shift and go to state 28
+    DIVISAO         shift and go to state 29
+
+  ! MULTIPLICACAO   [ reduce using rule 33 (expressao -> expressao MENOS expressao .) ]
+  ! DIVISAO         [ reduce using rule 33 (expressao -> expressao MENOS expressao .) ]
+  ! MAIS            [ shift and go to state 26 ]
+  ! MENOS           [ shift and go to state 27 ]
+  ! MENOR           [ shift and go to state 30 ]
+  ! MAIOR           [ shift and go to state 31 ]
+  ! IGUAL_IGUAL     [ shift and go to state 32 ]
+
+
+state 49
+
+    (34) expressao -> expressao MULTIPLICACAO expressao .
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    PONTO_VIRGULA   reduce using rule 34 (expressao -> expressao MULTIPLICACAO expressao .)
+    MAIS            reduce using rule 34 (expressao -> expressao MULTIPLICACAO expressao .)
+    MENOS           reduce using rule 34 (expressao -> expressao MULTIPLICACAO expressao .)
+    MULTIPLICACAO   reduce using rule 34 (expressao -> expressao MULTIPLICACAO expressao .)
+    DIVISAO         reduce using rule 34 (expressao -> expressao MULTIPLICACAO expressao .)
+    MENOR           reduce using rule 34 (expressao -> expressao MULTIPLICACAO expressao .)
+    MAIOR           reduce using rule 34 (expressao -> expressao MULTIPLICACAO expressao .)
+    IGUAL_IGUAL     reduce using rule 34 (expressao -> expressao MULTIPLICACAO expressao .)
+    VIRGULA         reduce using rule 34 (expressao -> expressao MULTIPLICACAO expressao .)
+    FECHA_PARENTESE reduce using rule 34 (expressao -> expressao MULTIPLICACAO expressao .)
+
+  ! MAIS            [ shift and go to state 26 ]
+  ! MENOS           [ shift and go to state 27 ]
+  ! MULTIPLICACAO   [ shift and go to state 28 ]
+  ! DIVISAO         [ shift and go to state 29 ]
+  ! MENOR           [ shift and go to state 30 ]
+  ! MAIOR           [ shift and go to state 31 ]
+  ! IGUAL_IGUAL     [ shift and go to state 32 ]
+
+
+state 50
+
+    (35) expressao -> expressao DIVISAO expressao .
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    PONTO_VIRGULA   reduce using rule 35 (expressao -> expressao DIVISAO expressao .)
+    MAIS            reduce using rule 35 (expressao -> expressao DIVISAO expressao .)
+    MENOS           reduce using rule 35 (expressao -> expressao DIVISAO expressao .)
+    MULTIPLICACAO   reduce using rule 35 (expressao -> expressao DIVISAO expressao .)
+    DIVISAO         reduce using rule 35 (expressao -> expressao DIVISAO expressao .)
+    MENOR           reduce using rule 35 (expressao -> expressao DIVISAO expressao .)
+    MAIOR           reduce using rule 35 (expressao -> expressao DIVISAO expressao .)
+    IGUAL_IGUAL     reduce using rule 35 (expressao -> expressao DIVISAO expressao .)
+    VIRGULA         reduce using rule 35 (expressao -> expressao DIVISAO expressao .)
+    FECHA_PARENTESE reduce using rule 35 (expressao -> expressao DIVISAO expressao .)
+
+  ! MAIS            [ shift and go to state 26 ]
+  ! MENOS           [ shift and go to state 27 ]
+  ! MULTIPLICACAO   [ shift and go to state 28 ]
+  ! DIVISAO         [ shift and go to state 29 ]
+  ! MENOR           [ shift and go to state 30 ]
+  ! MAIOR           [ shift and go to state 31 ]
+  ! IGUAL_IGUAL     [ shift and go to state 32 ]
+
+
+state 51
+
+    (36) expressao -> expressao MENOR expressao .
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    PONTO_VIRGULA   reduce using rule 36 (expressao -> expressao MENOR expressao .)
+    MENOR           reduce using rule 36 (expressao -> expressao MENOR expressao .)
+    MAIOR           reduce using rule 36 (expressao -> expressao MENOR expressao .)
+    IGUAL_IGUAL     reduce using rule 36 (expressao -> expressao MENOR expressao .)
+    VIRGULA         reduce using rule 36 (expressao -> expressao MENOR expressao .)
+    FECHA_PARENTESE reduce using rule 36 (expressao -> expressao MENOR expressao .)
+    MAIS            shift and go to state 26
+    MENOS           shift and go to state 27
+    MULTIPLICACAO   shift and go to state 28
+    DIVISAO         shift and go to state 29
+
+  ! MAIS            [ reduce using rule 36 (expressao -> expressao MENOR expressao .) ]
+  ! MENOS           [ reduce using rule 36 (expressao -> expressao MENOR expressao .) ]
+  ! MULTIPLICACAO   [ reduce using rule 36 (expressao -> expressao MENOR expressao .) ]
+  ! DIVISAO         [ reduce using rule 36 (expressao -> expressao MENOR expressao .) ]
+  ! MENOR           [ shift and go to state 30 ]
+  ! MAIOR           [ shift and go to state 31 ]
+  ! IGUAL_IGUAL     [ shift and go to state 32 ]
+
+
+state 52
+
+    (37) expressao -> expressao MAIOR expressao .
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    PONTO_VIRGULA   reduce using rule 37 (expressao -> expressao MAIOR expressao .)
+    MENOR           reduce using rule 37 (expressao -> expressao MAIOR expressao .)
+    MAIOR           reduce using rule 37 (expressao -> expressao MAIOR expressao .)
+    IGUAL_IGUAL     reduce using rule 37 (expressao -> expressao MAIOR expressao .)
+    VIRGULA         reduce using rule 37 (expressao -> expressao MAIOR expressao .)
+    FECHA_PARENTESE reduce using rule 37 (expressao -> expressao MAIOR expressao .)
+    MAIS            shift and go to state 26
+    MENOS           shift and go to state 27
+    MULTIPLICACAO   shift and go to state 28
+    DIVISAO         shift and go to state 29
+
+  ! MAIS            [ reduce using rule 37 (expressao -> expressao MAIOR expressao .) ]
+  ! MENOS           [ reduce using rule 37 (expressao -> expressao MAIOR expressao .) ]
+  ! MULTIPLICACAO   [ reduce using rule 37 (expressao -> expressao MAIOR expressao .) ]
+  ! DIVISAO         [ reduce using rule 37 (expressao -> expressao MAIOR expressao .) ]
+  ! MENOR           [ shift and go to state 30 ]
+  ! MAIOR           [ shift and go to state 31 ]
+  ! IGUAL_IGUAL     [ shift and go to state 32 ]
+
+
+state 53
+
+    (38) expressao -> expressao IGUAL_IGUAL expressao .
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    PONTO_VIRGULA   reduce using rule 38 (expressao -> expressao IGUAL_IGUAL expressao .)
+    MENOR           reduce using rule 38 (expressao -> expressao IGUAL_IGUAL expressao .)
+    MAIOR           reduce using rule 38 (expressao -> expressao IGUAL_IGUAL expressao .)
+    IGUAL_IGUAL     reduce using rule 38 (expressao -> expressao IGUAL_IGUAL expressao .)
+    VIRGULA         reduce using rule 38 (expressao -> expressao IGUAL_IGUAL expressao .)
+    FECHA_PARENTESE reduce using rule 38 (expressao -> expressao IGUAL_IGUAL expressao .)
+    MAIS            shift and go to state 26
+    MENOS           shift and go to state 27
+    MULTIPLICACAO   shift and go to state 28
+    DIVISAO         shift and go to state 29
+
+  ! MAIS            [ reduce using rule 38 (expressao -> expressao IGUAL_IGUAL expressao .) ]
+  ! MENOS           [ reduce using rule 38 (expressao -> expressao IGUAL_IGUAL expressao .) ]
+  ! MULTIPLICACAO   [ reduce using rule 38 (expressao -> expressao IGUAL_IGUAL expressao .) ]
+  ! DIVISAO         [ reduce using rule 38 (expressao -> expressao IGUAL_IGUAL expressao .) ]
+  ! MENOR           [ shift and go to state 30 ]
+  ! MAIOR           [ shift and go to state 31 ]
+  ! IGUAL_IGUAL     [ shift and go to state 32 ]
+
+
+state 54
+
+    (12) bloco_try_catch -> TRY DOIS_PONTOS bloco .
+    (13) bloco_try_catch -> TRY DOIS_PONTOS bloco . CATCH DOIS_PONTOS bloco
+    (15) bloco -> bloco . declaracao
+    (4) declaracao -> . decl_var
+    (5) declaracao -> . bloco_try_catch
+    (6) declaracao -> . comando
+    (7) declaracao -> . condicional
+    (8) declaracao -> . func_call
+    (9) declaracao -> . expressao_stmt
+    (11) decl_var -> . IDENTIFICADOR IGUAL expressao PONTO_VIRGULA
+    (12) bloco_try_catch -> . TRY DOIS_PONTOS bloco
+    (13) bloco_try_catch -> . TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+    (18) comando -> . acao PONTO_VIRGULA
+    (19) comando -> . acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (20) comando -> . acao argumentos PONTO_VIRGULA
+    (16) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (25) func_call -> . IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (10) expressao_stmt -> . expressao PONTO_VIRGULA
+    (21) acao -> . PRESS
+    (22) acao -> . EXIT
+    (23) acao -> . SHOW
+    (24) acao -> . TRYAGAIN
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+  ! shift/reduce conflict for CATCH resolved as shift
+  ! shift/reduce conflict for IDENTIFICADOR resolved as shift
+  ! shift/reduce conflict for TRY resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for PRESS resolved as shift
+  ! shift/reduce conflict for EXIT resolved as shift
+  ! shift/reduce conflict for SHOW resolved as shift
+  ! shift/reduce conflict for TRYAGAIN resolved as shift
+  ! shift/reduce conflict for ABRE_PARENTESE resolved as shift
+  ! shift/reduce conflict for NUMERO resolved as shift
+  ! shift/reduce conflict for STRING resolved as shift
+    $end            reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .)
+    FECHA_CHAVE     reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .)
+    CATCH           shift and go to state 64
+    IDENTIFICADOR   shift and go to state 10
+    TRY             shift and go to state 12
+    IF              shift and go to state 15
+    PRESS           shift and go to state 16
+    EXIT            shift and go to state 17
+    SHOW            shift and go to state 18
+    TRYAGAIN        shift and go to state 19
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    STRING          shift and go to state 21
+
+  ! IDENTIFICADOR   [ reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .) ]
+  ! TRY             [ reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .) ]
+  ! IF              [ reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .) ]
+  ! PRESS           [ reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .) ]
+  ! EXIT            [ reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .) ]
+  ! SHOW            [ reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .) ]
+  ! TRYAGAIN        [ reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .) ]
+  ! ABRE_PARENTESE  [ reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .) ]
+  ! NUMERO          [ reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .) ]
+  ! STRING          [ reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .) ]
+  ! CATCH           [ reduce using rule 12 (bloco_try_catch -> TRY DOIS_PONTOS bloco .) ]
+
+    declaracao                     shift and go to state 65
+    decl_var                       shift and go to state 4
+    bloco_try_catch                shift and go to state 5
+    comando                        shift and go to state 6
+    condicional                    shift and go to state 7
+    func_call                      shift and go to state 8
+    expressao_stmt                 shift and go to state 9
+    expressao                      shift and go to state 11
+    acao                           shift and go to state 13
+
+state 55
+
+    (14) bloco -> declaracao .
+
+    CATCH           reduce using rule 14 (bloco -> declaracao .)
+    IDENTIFICADOR   reduce using rule 14 (bloco -> declaracao .)
+    TRY             reduce using rule 14 (bloco -> declaracao .)
+    IF              reduce using rule 14 (bloco -> declaracao .)
+    PRESS           reduce using rule 14 (bloco -> declaracao .)
+    EXIT            reduce using rule 14 (bloco -> declaracao .)
+    SHOW            reduce using rule 14 (bloco -> declaracao .)
+    TRYAGAIN        reduce using rule 14 (bloco -> declaracao .)
+    ABRE_PARENTESE  reduce using rule 14 (bloco -> declaracao .)
+    NUMERO          reduce using rule 14 (bloco -> declaracao .)
+    STRING          reduce using rule 14 (bloco -> declaracao .)
+    $end            reduce using rule 14 (bloco -> declaracao .)
+    FECHA_CHAVE     reduce using rule 14 (bloco -> declaracao .)
+
+
+state 56
+
+    (19) comando -> acao ABRE_PARENTESE argumentos_opcionais . FECHA_PARENTESE PONTO_VIRGULA
+
+    FECHA_PARENTESE shift and go to state 66
+
+
+state 57
+
+    (39) expressao -> ABRE_PARENTESE expressao . FECHA_PARENTESE
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+    (30) argumento -> expressao .
+
+  ! shift/reduce conflict for FECHA_PARENTESE resolved as shift
+    FECHA_PARENTESE shift and go to state 60
+    MAIS            shift and go to state 26
+    MENOS           shift and go to state 27
+    MULTIPLICACAO   shift and go to state 28
+    DIVISAO         shift and go to state 29
+    MENOR           shift and go to state 30
+    MAIOR           shift and go to state 31
+    IGUAL_IGUAL     shift and go to state 32
+    VIRGULA         reduce using rule 30 (argumento -> expressao .)
+
+  ! FECHA_PARENTESE [ reduce using rule 30 (argumento -> expressao .) ]
+
+
+state 58
+
+    (20) comando -> acao argumentos PONTO_VIRGULA .
+
+    IDENTIFICADOR   reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    TRY             reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    IF              reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    PRESS           reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    EXIT            reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    SHOW            reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    TRYAGAIN        reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    ABRE_PARENTESE  reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    NUMERO          reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    STRING          reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    $end            reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    CATCH           reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+    FECHA_CHAVE     reduce using rule 20 (comando -> acao argumentos PONTO_VIRGULA .)
+
+
+state 59
+
+    (29) argumentos -> argumentos VIRGULA . argumento
+    (30) argumento -> . expressao
+    (31) argumento -> . TECLA
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    TECLA           shift and go to state 39
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    IDENTIFICADOR   shift and go to state 40
+    STRING          shift and go to state 21
+
+    argumento                      shift and go to state 67
+    expressao                      shift and go to state 38
+
+state 60
+
+    (39) expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE .
+
+    PONTO_VIRGULA   reduce using rule 39 (expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE .)
+    MAIS            reduce using rule 39 (expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE .)
+    MENOS           reduce using rule 39 (expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE .)
+    MULTIPLICACAO   reduce using rule 39 (expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE .)
+    DIVISAO         reduce using rule 39 (expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE .)
+    MENOR           reduce using rule 39 (expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE .)
+    MAIOR           reduce using rule 39 (expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE .)
+    IGUAL_IGUAL     reduce using rule 39 (expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE .)
+    VIRGULA         reduce using rule 39 (expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE .)
+    FECHA_PARENTESE reduce using rule 39 (expressao -> ABRE_PARENTESE expressao FECHA_PARENTESE .)
+
+
+state 61
+
+    (16) condicional -> IF ABRE_PARENTESE expressao . FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> IF ABRE_PARENTESE expressao . FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (32) expressao -> expressao . MAIS expressao
+    (33) expressao -> expressao . MENOS expressao
+    (34) expressao -> expressao . MULTIPLICACAO expressao
+    (35) expressao -> expressao . DIVISAO expressao
+    (36) expressao -> expressao . MENOR expressao
+    (37) expressao -> expressao . MAIOR expressao
+    (38) expressao -> expressao . IGUAL_IGUAL expressao
+
+    FECHA_PARENTESE shift and go to state 68
+    MAIS            shift and go to state 26
+    MENOS           shift and go to state 27
+    MULTIPLICACAO   shift and go to state 28
+    DIVISAO         shift and go to state 29
+    MENOR           shift and go to state 30
+    MAIOR           shift and go to state 31
+    IGUAL_IGUAL     shift and go to state 32
+
+
+state 62
+
+    (11) decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .
+
+    IDENTIFICADOR   reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    TRY             reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    IF              reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    PRESS           reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    EXIT            reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    SHOW            reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    TRYAGAIN        reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    ABRE_PARENTESE  reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    NUMERO          reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    STRING          reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    $end            reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    CATCH           reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+    FECHA_CHAVE     reduce using rule 11 (decl_var -> IDENTIFICADOR IGUAL expressao PONTO_VIRGULA .)
+
+
+state 63
+
+    (25) func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE . PONTO_VIRGULA
+
+    PONTO_VIRGULA   shift and go to state 69
+
+
+state 64
+
+    (13) bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH . DOIS_PONTOS bloco
+
+    DOIS_PONTOS     shift and go to state 70
+
+
+state 65
+
+    (15) bloco -> bloco declaracao .
+
+    CATCH           reduce using rule 15 (bloco -> bloco declaracao .)
+    IDENTIFICADOR   reduce using rule 15 (bloco -> bloco declaracao .)
+    TRY             reduce using rule 15 (bloco -> bloco declaracao .)
+    IF              reduce using rule 15 (bloco -> bloco declaracao .)
+    PRESS           reduce using rule 15 (bloco -> bloco declaracao .)
+    EXIT            reduce using rule 15 (bloco -> bloco declaracao .)
+    SHOW            reduce using rule 15 (bloco -> bloco declaracao .)
+    TRYAGAIN        reduce using rule 15 (bloco -> bloco declaracao .)
+    ABRE_PARENTESE  reduce using rule 15 (bloco -> bloco declaracao .)
+    NUMERO          reduce using rule 15 (bloco -> bloco declaracao .)
+    STRING          reduce using rule 15 (bloco -> bloco declaracao .)
+    $end            reduce using rule 15 (bloco -> bloco declaracao .)
+    FECHA_CHAVE     reduce using rule 15 (bloco -> bloco declaracao .)
+
+
+state 66
+
+    (19) comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE . PONTO_VIRGULA
+
+    PONTO_VIRGULA   shift and go to state 71
+
+
+state 67
+
+    (29) argumentos -> argumentos VIRGULA argumento .
+
+    PONTO_VIRGULA   reduce using rule 29 (argumentos -> argumentos VIRGULA argumento .)
+    VIRGULA         reduce using rule 29 (argumentos -> argumentos VIRGULA argumento .)
+    FECHA_PARENTESE reduce using rule 29 (argumentos -> argumentos VIRGULA argumento .)
+
+
+state 68
+
+    (16) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE . ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE . ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+
+    ABRE_CHAVE      shift and go to state 72
+
+
+state 69
+
+    (25) func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .
+
+    IDENTIFICADOR   reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    TRY             reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    IF              reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    PRESS           reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    EXIT            reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    SHOW            reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    TRYAGAIN        reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    ABRE_PARENTESE  reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    NUMERO          reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    STRING          reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    $end            reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    CATCH           reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    FECHA_CHAVE     reduce using rule 25 (func_call -> IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+
+
+state 70
+
+    (13) bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS . bloco
+    (14) bloco -> . declaracao
+    (15) bloco -> . bloco declaracao
+    (4) declaracao -> . decl_var
+    (5) declaracao -> . bloco_try_catch
+    (6) declaracao -> . comando
+    (7) declaracao -> . condicional
+    (8) declaracao -> . func_call
+    (9) declaracao -> . expressao_stmt
+    (11) decl_var -> . IDENTIFICADOR IGUAL expressao PONTO_VIRGULA
+    (12) bloco_try_catch -> . TRY DOIS_PONTOS bloco
+    (13) bloco_try_catch -> . TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+    (18) comando -> . acao PONTO_VIRGULA
+    (19) comando -> . acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (20) comando -> . acao argumentos PONTO_VIRGULA
+    (16) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (25) func_call -> . IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (10) expressao_stmt -> . expressao PONTO_VIRGULA
+    (21) acao -> . PRESS
+    (22) acao -> . EXIT
+    (23) acao -> . SHOW
+    (24) acao -> . TRYAGAIN
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    IDENTIFICADOR   shift and go to state 10
+    TRY             shift and go to state 12
+    IF              shift and go to state 15
+    PRESS           shift and go to state 16
+    EXIT            shift and go to state 17
+    SHOW            shift and go to state 18
+    TRYAGAIN        shift and go to state 19
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    STRING          shift and go to state 21
+
+    bloco                          shift and go to state 73
+    declaracao                     shift and go to state 55
+    decl_var                       shift and go to state 4
+    bloco_try_catch                shift and go to state 5
+    comando                        shift and go to state 6
+    condicional                    shift and go to state 7
+    func_call                      shift and go to state 8
+    expressao_stmt                 shift and go to state 9
+    expressao                      shift and go to state 11
+    acao                           shift and go to state 13
+
+state 71
+
+    (19) comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .
+
+    IDENTIFICADOR   reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    TRY             reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    IF              reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    PRESS           reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    EXIT            reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    SHOW            reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    TRYAGAIN        reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    ABRE_PARENTESE  reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    NUMERO          reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    STRING          reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    $end            reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    CATCH           reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+    FECHA_CHAVE     reduce using rule 19 (comando -> acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA .)
+
+
+state 72
+
+    (16) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE . bloco FECHA_CHAVE
+    (17) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE . bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (14) bloco -> . declaracao
+    (15) bloco -> . bloco declaracao
+    (4) declaracao -> . decl_var
+    (5) declaracao -> . bloco_try_catch
+    (6) declaracao -> . comando
+    (7) declaracao -> . condicional
+    (8) declaracao -> . func_call
+    (9) declaracao -> . expressao_stmt
+    (11) decl_var -> . IDENTIFICADOR IGUAL expressao PONTO_VIRGULA
+    (12) bloco_try_catch -> . TRY DOIS_PONTOS bloco
+    (13) bloco_try_catch -> . TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+    (18) comando -> . acao PONTO_VIRGULA
+    (19) comando -> . acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (20) comando -> . acao argumentos PONTO_VIRGULA
+    (16) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (25) func_call -> . IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (10) expressao_stmt -> . expressao PONTO_VIRGULA
+    (21) acao -> . PRESS
+    (22) acao -> . EXIT
+    (23) acao -> . SHOW
+    (24) acao -> . TRYAGAIN
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    IDENTIFICADOR   shift and go to state 10
+    TRY             shift and go to state 12
+    IF              shift and go to state 15
+    PRESS           shift and go to state 16
+    EXIT            shift and go to state 17
+    SHOW            shift and go to state 18
+    TRYAGAIN        shift and go to state 19
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 11
+    bloco                          shift and go to state 74
+    declaracao                     shift and go to state 55
+    decl_var                       shift and go to state 4
+    bloco_try_catch                shift and go to state 5
+    comando                        shift and go to state 6
+    condicional                    shift and go to state 7
+    func_call                      shift and go to state 8
+    expressao_stmt                 shift and go to state 9
+    acao                           shift and go to state 13
+
+state 73
+
+    (13) bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .
+    (15) bloco -> bloco . declaracao
+    (4) declaracao -> . decl_var
+    (5) declaracao -> . bloco_try_catch
+    (6) declaracao -> . comando
+    (7) declaracao -> . condicional
+    (8) declaracao -> . func_call
+    (9) declaracao -> . expressao_stmt
+    (11) decl_var -> . IDENTIFICADOR IGUAL expressao PONTO_VIRGULA
+    (12) bloco_try_catch -> . TRY DOIS_PONTOS bloco
+    (13) bloco_try_catch -> . TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+    (18) comando -> . acao PONTO_VIRGULA
+    (19) comando -> . acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (20) comando -> . acao argumentos PONTO_VIRGULA
+    (16) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (25) func_call -> . IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (10) expressao_stmt -> . expressao PONTO_VIRGULA
+    (21) acao -> . PRESS
+    (22) acao -> . EXIT
+    (23) acao -> . SHOW
+    (24) acao -> . TRYAGAIN
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+  ! shift/reduce conflict for IDENTIFICADOR resolved as shift
+  ! shift/reduce conflict for TRY resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for PRESS resolved as shift
+  ! shift/reduce conflict for EXIT resolved as shift
+  ! shift/reduce conflict for SHOW resolved as shift
+  ! shift/reduce conflict for TRYAGAIN resolved as shift
+  ! shift/reduce conflict for ABRE_PARENTESE resolved as shift
+  ! shift/reduce conflict for NUMERO resolved as shift
+  ! shift/reduce conflict for STRING resolved as shift
+    $end            reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .)
+    CATCH           reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .)
+    FECHA_CHAVE     reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .)
+    IDENTIFICADOR   shift and go to state 10
+    TRY             shift and go to state 12
+    IF              shift and go to state 15
+    PRESS           shift and go to state 16
+    EXIT            shift and go to state 17
+    SHOW            shift and go to state 18
+    TRYAGAIN        shift and go to state 19
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    STRING          shift and go to state 21
+
+  ! IDENTIFICADOR   [ reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .) ]
+  ! TRY             [ reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .) ]
+  ! IF              [ reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .) ]
+  ! PRESS           [ reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .) ]
+  ! EXIT            [ reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .) ]
+  ! SHOW            [ reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .) ]
+  ! TRYAGAIN        [ reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .) ]
+  ! ABRE_PARENTESE  [ reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .) ]
+  ! NUMERO          [ reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .) ]
+  ! STRING          [ reduce using rule 13 (bloco_try_catch -> TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco .) ]
+
+    declaracao                     shift and go to state 65
+    decl_var                       shift and go to state 4
+    bloco_try_catch                shift and go to state 5
+    comando                        shift and go to state 6
+    condicional                    shift and go to state 7
+    func_call                      shift and go to state 8
+    expressao_stmt                 shift and go to state 9
+    expressao                      shift and go to state 11
+    acao                           shift and go to state 13
+
+state 74
+
+    (16) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco . FECHA_CHAVE
+    (17) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco . FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (15) bloco -> bloco . declaracao
+    (4) declaracao -> . decl_var
+    (5) declaracao -> . bloco_try_catch
+    (6) declaracao -> . comando
+    (7) declaracao -> . condicional
+    (8) declaracao -> . func_call
+    (9) declaracao -> . expressao_stmt
+    (11) decl_var -> . IDENTIFICADOR IGUAL expressao PONTO_VIRGULA
+    (12) bloco_try_catch -> . TRY DOIS_PONTOS bloco
+    (13) bloco_try_catch -> . TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+    (18) comando -> . acao PONTO_VIRGULA
+    (19) comando -> . acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (20) comando -> . acao argumentos PONTO_VIRGULA
+    (16) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (25) func_call -> . IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (10) expressao_stmt -> . expressao PONTO_VIRGULA
+    (21) acao -> . PRESS
+    (22) acao -> . EXIT
+    (23) acao -> . SHOW
+    (24) acao -> . TRYAGAIN
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    FECHA_CHAVE     shift and go to state 75
+    IDENTIFICADOR   shift and go to state 10
+    TRY             shift and go to state 12
+    IF              shift and go to state 15
+    PRESS           shift and go to state 16
+    EXIT            shift and go to state 17
+    SHOW            shift and go to state 18
+    TRYAGAIN        shift and go to state 19
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 11
+    declaracao                     shift and go to state 65
+    decl_var                       shift and go to state 4
+    bloco_try_catch                shift and go to state 5
+    comando                        shift and go to state 6
+    condicional                    shift and go to state 7
+    func_call                      shift and go to state 8
+    expressao_stmt                 shift and go to state 9
+    acao                           shift and go to state 13
+
+state 75
+
+    (16) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .
+    (17) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE . ELSE ABRE_CHAVE bloco FECHA_CHAVE
+
+    IDENTIFICADOR   reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    TRY             reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    IF              reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    PRESS           reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    EXIT            reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    SHOW            reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    TRYAGAIN        reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    ABRE_PARENTESE  reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    NUMERO          reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    STRING          reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    $end            reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    CATCH           reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    FECHA_CHAVE     reduce using rule 16 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE .)
+    ELSE            shift and go to state 76
+
+
+state 76
+
+    (17) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE . ABRE_CHAVE bloco FECHA_CHAVE
+
+    ABRE_CHAVE      shift and go to state 77
+
+
+state 77
+
+    (17) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE . bloco FECHA_CHAVE
+    (14) bloco -> . declaracao
+    (15) bloco -> . bloco declaracao
+    (4) declaracao -> . decl_var
+    (5) declaracao -> . bloco_try_catch
+    (6) declaracao -> . comando
+    (7) declaracao -> . condicional
+    (8) declaracao -> . func_call
+    (9) declaracao -> . expressao_stmt
+    (11) decl_var -> . IDENTIFICADOR IGUAL expressao PONTO_VIRGULA
+    (12) bloco_try_catch -> . TRY DOIS_PONTOS bloco
+    (13) bloco_try_catch -> . TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+    (18) comando -> . acao PONTO_VIRGULA
+    (19) comando -> . acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (20) comando -> . acao argumentos PONTO_VIRGULA
+    (16) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (25) func_call -> . IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (10) expressao_stmt -> . expressao PONTO_VIRGULA
+    (21) acao -> . PRESS
+    (22) acao -> . EXIT
+    (23) acao -> . SHOW
+    (24) acao -> . TRYAGAIN
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    IDENTIFICADOR   shift and go to state 10
+    TRY             shift and go to state 12
+    IF              shift and go to state 15
+    PRESS           shift and go to state 16
+    EXIT            shift and go to state 17
+    SHOW            shift and go to state 18
+    TRYAGAIN        shift and go to state 19
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 11
+    bloco                          shift and go to state 78
+    declaracao                     shift and go to state 55
+    decl_var                       shift and go to state 4
+    bloco_try_catch                shift and go to state 5
+    comando                        shift and go to state 6
+    condicional                    shift and go to state 7
+    func_call                      shift and go to state 8
+    expressao_stmt                 shift and go to state 9
+    acao                           shift and go to state 13
+
+state 78
+
+    (17) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco . FECHA_CHAVE
+    (15) bloco -> bloco . declaracao
+    (4) declaracao -> . decl_var
+    (5) declaracao -> . bloco_try_catch
+    (6) declaracao -> . comando
+    (7) declaracao -> . condicional
+    (8) declaracao -> . func_call
+    (9) declaracao -> . expressao_stmt
+    (11) decl_var -> . IDENTIFICADOR IGUAL expressao PONTO_VIRGULA
+    (12) bloco_try_catch -> . TRY DOIS_PONTOS bloco
+    (13) bloco_try_catch -> . TRY DOIS_PONTOS bloco CATCH DOIS_PONTOS bloco
+    (18) comando -> . acao PONTO_VIRGULA
+    (19) comando -> . acao ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (20) comando -> . acao argumentos PONTO_VIRGULA
+    (16) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE
+    (17) condicional -> . IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE
+    (25) func_call -> . IDENTIFICADOR ABRE_PARENTESE argumentos_opcionais FECHA_PARENTESE PONTO_VIRGULA
+    (10) expressao_stmt -> . expressao PONTO_VIRGULA
+    (21) acao -> . PRESS
+    (22) acao -> . EXIT
+    (23) acao -> . SHOW
+    (24) acao -> . TRYAGAIN
+    (32) expressao -> . expressao MAIS expressao
+    (33) expressao -> . expressao MENOS expressao
+    (34) expressao -> . expressao MULTIPLICACAO expressao
+    (35) expressao -> . expressao DIVISAO expressao
+    (36) expressao -> . expressao MENOR expressao
+    (37) expressao -> . expressao MAIOR expressao
+    (38) expressao -> . expressao IGUAL_IGUAL expressao
+    (39) expressao -> . ABRE_PARENTESE expressao FECHA_PARENTESE
+    (40) expressao -> . NUMERO
+    (41) expressao -> . IDENTIFICADOR
+    (42) expressao -> . STRING
+
+    FECHA_CHAVE     shift and go to state 79
+    IDENTIFICADOR   shift and go to state 10
+    TRY             shift and go to state 12
+    IF              shift and go to state 15
+    PRESS           shift and go to state 16
+    EXIT            shift and go to state 17
+    SHOW            shift and go to state 18
+    TRYAGAIN        shift and go to state 19
+    ABRE_PARENTESE  shift and go to state 14
+    NUMERO          shift and go to state 20
+    STRING          shift and go to state 21
+
+    expressao                      shift and go to state 11
+    declaracao                     shift and go to state 65
+    decl_var                       shift and go to state 4
+    bloco_try_catch                shift and go to state 5
+    comando                        shift and go to state 6
+    condicional                    shift and go to state 7
+    func_call                      shift and go to state 8
+    expressao_stmt                 shift and go to state 9
+    acao                           shift and go to state 13
+
+state 79
+
+    (17) condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .
+
+    IDENTIFICADOR   reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    TRY             reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    IF              reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    PRESS           reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    EXIT            reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    SHOW            reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    TRYAGAIN        reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    ABRE_PARENTESE  reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    NUMERO          reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    STRING          reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    $end            reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    CATCH           reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+    FECHA_CHAVE     reduce using rule 17 (condicional -> IF ABRE_PARENTESE expressao FECHA_PARENTESE ABRE_CHAVE bloco FECHA_CHAVE ELSE ABRE_CHAVE bloco FECHA_CHAVE .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for CATCH in state 54 resolved as shift
+WARNING: shift/reduce conflict for IDENTIFICADOR in state 54 resolved as shift
+WARNING: shift/reduce conflict for TRY in state 54 resolved as shift
+WARNING: shift/reduce conflict for IF in state 54 resolved as shift
+WARNING: shift/reduce conflict for PRESS in state 54 resolved as shift
+WARNING: shift/reduce conflict for EXIT in state 54 resolved as shift
+WARNING: shift/reduce conflict for SHOW in state 54 resolved as shift
+WARNING: shift/reduce conflict for TRYAGAIN in state 54 resolved as shift
+WARNING: shift/reduce conflict for ABRE_PARENTESE in state 54 resolved as shift
+WARNING: shift/reduce conflict for NUMERO in state 54 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 54 resolved as shift
+WARNING: shift/reduce conflict for FECHA_PARENTESE in state 57 resolved as shift
+WARNING: shift/reduce conflict for IDENTIFICADOR in state 73 resolved as shift
+WARNING: shift/reduce conflict for TRY in state 73 resolved as shift
+WARNING: shift/reduce conflict for IF in state 73 resolved as shift
+WARNING: shift/reduce conflict for PRESS in state 73 resolved as shift
+WARNING: shift/reduce conflict for EXIT in state 73 resolved as shift
+WARNING: shift/reduce conflict for SHOW in state 73 resolved as shift
+WARNING: shift/reduce conflict for TRYAGAIN in state 73 resolved as shift
+WARNING: shift/reduce conflict for ABRE_PARENTESE in state 73 resolved as shift
+WARNING: shift/reduce conflict for NUMERO in state 73 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 73 resolved as shift
