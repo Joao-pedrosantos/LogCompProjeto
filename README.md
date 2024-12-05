@@ -1,4 +1,6 @@
-# LogCompProjeto
+# MacroScript
+
+Vídeo: https://youtu.be/AT6TMavilDQ
 
 
 EBNF
